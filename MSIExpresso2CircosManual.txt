@@ -1,0 +1,68 @@
+MSExpresso2Circos.pl script usage :
+MSExpresso2Circos is designed to draw CIRCOS graphs from MSExpresso output files.
+It will display the status of a list of microsatellites status for a set of samples.
+By default, the list of microsatellites used is the MSExpresso UTR panel containing 192 microsatellites.
+You can use your own set of microsatellites of interest instead.
+The list is made of microsatellites id in the format <chr>.<position>. One id per line. Extra information can be added as in columns long as the first column of the file contains the microsatellite id.
+The set of samples displayed is determined either by:
+1) All the samples files located in the directory set in the configuration file
+2) A file containing a set of samples names.
+The display order of samples in concentric circles is set in the configuration file using the parameter ‘sample list order’ with one of the values below:
+- MSI out: From the highest MSI status sample to the lowest
+- MSI in: Reverse order from above
+If the ’sample list order’ parameter is not set, the sample names alphanumeric order will be used. 
+If a file list of samples is given, the list order will be used.
+If a sort order is defined, blank circles will be displayed to separate MSI-H from MSI-L samples and MSI-L from MSS samples. To prevent the display of these blank circles, set MSI-H and MSI-L cutoff to zero in the configuration file.
+If a list of samples is provided, you can manually add blank circles by placing samples labeled  ‘blank’ in your list file, EG:
+Sample1
+Sample2
+blank
+Sample3
+…
+The program will automatically calculate the best size of display depending on the number of samples and microsatellites.
+Up to 70 samples can be displayed in one CIRCOS plot without changing default settings, and, as much as possible, microsatellites will be displayed without overlapping.
+If you want to display more samples, reduce the value of the ‘circos inner circle’ parameter, but be aware that the innermost microsatellites status will be hardly readable.
+If you intend to display many microsatellites and see that some are missing or overlapping, decrease the ‘microsatellite display size’ parameter to 2 or less and the ‘microsatellite minimum distance’ parameter to .5, at your own risks…
+
+
+
+The default colors for each status and phenotype code for CIRCOS are as follow:
+NA: grey (phenotype=0)
+MSS: green (phenotype=3)
+UTR panel MSI-H: red (phenotype=2)
+UTR panel MSI-L: yellow (phenotype=1)
+CODING MSI-H: dark blue (phenotype=8)
+CODING MSI-L: light blue (phenotype=9)
+SKIPPING MSI-H: purple (phenotype=6)
+SKIPPING MSI-L: pink (phenotype=7)
+Blank: white (phenotype=5)
+These colors can be changed in the rules.conf file located in the circos directory of the MSExpresso package.
+Other parameters such as border thickness, can be *carefully* changed in the template.txt file of the circos directory. For safety, keep an unchanged copy of this file.
+Here is the full list of parameters to set in MSExpresso2circos.pl configuration file:
+One parameter by line in the format <parameter name>=<parameter value>
+output directory:
+the directory containing the MSExpresso output files of the samples to display, for each sample, 4 MSExpresso output files are required: 
+<sample name>.MSIStatus.counts.csv status file, required  to order the samples to display according to the ‘sample list ‘order’ parameter
+<sample name>.CODING.counts.csv, required if your panel contains coding/UTR microsatellites
+ <sample name>.SKIPPING.counts.csv, required if your panel contains microsatellites linked to skipping events
+<sample name>.INTRONIC.counts.csv, required if your panel contains intronic microsatellites
+circos microsatellite list:
+the name of the file containing the microsatellites to display, we provide one file in the circos directory : circos.msi
+circos data directory:
+a directory that will contain files that will be used as CIRCOS input.
+circos templates directory :
+the location of the template.txt and rules.conf files provided with the MSExpresso distribution.
+ microsatellite minimum distance:
+this parameter ensures a proper spacing between microsatellites displayed, please n
+do not change this value unless you intend to display a very large number of microsatellites by chromosome.
+microsatellite display size:
+this is the width of the status tile in circos display, this can be reduced for the same reasons as above 
+UTR panel:
+The UTR panel id file used to determine the MSI status of each sample, by default located in the same directory as MSExpresso.
+MSI-H cutoff:
+The minimum MSI percentage for a sample have the MSI-H status.
+MSI-L cutoff:
+The minimum MSI percentage for a sample to have the MSI-L status. Samples below this value will be considered as MSS.
+sample list order=MSI out
+circos inner circle:
+the inner radius of the plot, in order to leave some visibility to inner samples leave an inner space blank. This can be set to lower value, but microsatellites status below this position will be had to read.

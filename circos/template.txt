@@ -1,0 +1,56 @@
+
+
+<ideogram>
+<spacing>
+default = 1u
+</spacing>
+radius           = 0.90r
+thickness        = 20p
+fill             = yes
+stroke_color     = dgrey
+stroke_thickness = 2p
+show_label       = yes
+label_font       = default 
+label_radius     = dims(image,radius) - 60p
+label_size       = 30
+label_parallel   = yes
+show_bands            = yes
+fill_bands            = yes
+band_stroke_thickness = 2
+band_stroke_color     = white
+band_transparency     = 4
+</ideogram>
+
+show_ticks          = yes
+show_tick_labels    = yes
+
+<ticks>
+radius           = 1r
+color            = black
+thickness        = 2p
+multiplier       = 1e-6
+format           = %d
+
+<tick>
+spacing        = 5u
+size           = 20p
+</tick>
+
+<tick>
+spacing        = 25u
+size           = 15p
+show_label     = yes
+label_size     = 10p
+label_offset   = 10p
+format         = %d
+</tick>
+
+</ticks>
+
+<image>
+<<include image.generic.conf>>
+<<include background.white.conf>>
+
+</image>
+<<include colors_fonts_patterns.conf>> 
+<<include housekeeping.conf>>

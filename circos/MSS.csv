@@ -1,0 +1,12 @@
+output directory=/env/gnfs/Projects/MSI/Microsplicother/CIRCOS/MSS
+circos microsatellite list=/env/gnfs/Projects/MSI/release/circos/circos.msi
+circos data directory=/env/gnfs/Projects/MSI/Microsplicother/CIRCOS/MSS
+circos templates directory=/env/gnfs/Projects/MSI/release/circos
+microsatellite minimum distance=1
+microsatellite display size=4
+UTR panel=/env/gnfs/Projects/MSI/release/UTR.panel
+MSI-H cutoff=50
+MSI-L cutoff=30
+sample list order=MSI out
+circos inner circle=.15
+circos plot name=MSS
