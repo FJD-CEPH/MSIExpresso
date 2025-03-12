@@ -4,6 +4,7 @@ Requirements:
 - Perl
 - BWA
 - samtools
+- bcftools
 - MSIExpresso reference database available here: https://fjd-ceph.box.com/shared/static/0v3p4wjx5h0usdrej7jeod6o42ivqon9.zip
 Running MSIExpresso:
 <path to>/MSIExpresso.pl <configuration file> [updateStatus]
