@@ -12,7 +12,7 @@ One parameter per line.
 List of all parameters available:
 Global parameters:
 database dir: the location of the fasta database provided with MSIExpresso. (EG: <your path>/MSIExpresso/db).
-ALL THE DATABASE FILES MUST BE DOWNLOADED AS AN ARCHIVE FROM GOOGLE CLOUD ADDRESS:
+ALL THE DATABASE FILES MUST BE DOWNLOADED AS AN ARCHIVE FROM box.com ADDRESS specified in the GitHub README.md.
 output dir: the location for sample analysis output files (must be created before running MSIExpresso).
 output files root: base name for each output file (e.g: the sample name)
 path to bwa: path to bwa executable (version 0.7.15 or higher recommended) if not in the default path
@@ -41,8 +41,8 @@ List of microsatellites id and number of reads presenting instability
 2) Coding microsatellites 
 <SAMPLE_NAME>.CODING.counts.csv:
 <microsatellite ID><base><length> <gene information><microsatellite observed sizes> 
-Gene information: NM-gene name-exon/number total of exons type (coding|5íutr|3íutr)
-Observed sizes: microsatellite relative size/count of reads from the longest deletion to the longest insertion. Normal reads have a ì0î size, deletions have negative sizes, insertions positive sizes.
+Gene information: NM-gene name-exon/number total of exons type (coding|5‚Äôutr|3‚Äôutr)
+Observed sizes: microsatellite relative size/count of reads from the longest deletion to the longest insertion. Normal reads have a ‚Äú0‚Äù size, deletions have negative sizes, insertions positive sizes.
 3) Exon skipping: 
 <SAMPLE_NAME>.SKIPPING.counts.csv:
 <Gene name><NM id><exon skipped><distance to the closest exon><total number of exons><microsatellite id> <number of skipping reads for exon N> <number junctions N-1/N reads> <number of junctions N/N+1 reads>
@@ -50,7 +50,7 @@ Observed sizes: microsatellite relative size/count of reads from the longest del
 <SAMPLE_NAME>.INTRONIC.counts.csv:
 <microsatellite ID><base><length> <gene information><microsatellite observed sizes> 
 Gene information: NM-gene name-exon/number total of exons
-Observed sizes: microsatellite relative size/count of reads from the longest deletion to the longest insertion. Normal reads have a ì0î size, deletions have negative sizes, insertions positive sizes.
+Observed sizes: microsatellite relative size/count of reads from the longest deletion to the longest insertion. Normal reads have a ‚Äú0‚Äù size, deletions have negative sizes, insertions positive sizes.
 Optional files:
 Read files: <read name> <matching sequence id> <microsatellite relative size (if available)>
 Sam files: the alignment line as given by bwa output.
